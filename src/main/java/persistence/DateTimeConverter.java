@@ -10,11 +10,11 @@ import jakarta.persistence.Converter;
 public class DateTimeConverter implements AttributeConverter<LocalDateTime, Timestamp>{
 
 	public Timestamp convertToDatabaseColumn(LocalDateTime dateTime) {
-		return Timestamp.valueOf(dateTime);
+		return (dateTime == null) ? null : Timestamp.valueOf(dateTime);
 	}
 
 	public LocalDateTime convertToEntityAttribute(Timestamp dateTime) {
-		return dateTime.toLocalDateTime();
+		return (dateTime == null) ? null : dateTime.toLocalDateTime();
 	}
 
 }
