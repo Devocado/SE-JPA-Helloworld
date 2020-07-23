@@ -10,7 +10,6 @@
       <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/order_service"/>
       <property name="jakarta.persistence.jdbc.user" value="general_user"/>
       <property name="jakarta.persistence.jdbc.password" value="verysecure_:P"/>
-      <property name="jakarta.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
     </properties>
   </persistence-unit>
 </persistence>
