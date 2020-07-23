@@ -14,6 +14,7 @@ import jakarta.persistence.TemporalType;
 @Entity
 @Table(name = "items")
 public class Item {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -29,14 +30,12 @@ public class Item {
 	@Temporal(value = TemporalType.TIMESTAMP)
 	private LocalDateTime created;
 	
-	public Item(String name, BigDecimal price, String manufacturer, Integer partnumber) {
+	public Item(String name, BigDecimal price) {
 		this.name = name;
 		this.price = price;
-		this.manufacturer = manufacturer;
-		this.partnumber = partnumber;
 	}
 	
-	public Item() {}
+	protected Item() {}
 
 	public String getName() {
 		return name;
