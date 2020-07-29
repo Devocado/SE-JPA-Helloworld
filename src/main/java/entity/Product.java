@@ -3,21 +3,22 @@ package entity;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "items")
-public class Item {
+@Table(name = "products")
+//@NamedQuery(name = Product.SET_QUANTITY, query = "update ")
+public class Product {
+	public static final String SET_QUANTITY = "Product.setQuantity";
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@Column(name = "part_no")
+	private Long partNo;
 	
 	private String name;
 	
@@ -25,18 +26,21 @@ public class Item {
 	
 	private String manufacturer;
 	
-	private Integer partnumber;
-	
 	@Temporal(value = TemporalType.TIMESTAMP)
 	private LocalDateTime created;
 	
-	public Item(String name, BigDecimal price) {
+	public Product(Long partnumber, String name, BigDecimal price) {
+		this.partNo = partnumber;
 		this.name = name;
 		this.price = price;
 	}
 	
-	protected Item() {}
+	protected Product() {}
 
+	public Long getPartnumber() {
+		return partNo;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -59,18 +63,6 @@ public class Item {
 
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
-	}
-
-	public Integer getPartnumber() {
-		return partnumber;
-	}
-
-	public void setPartnumber(Integer partnumber) {
-		this.partnumber = partnumber;
-	}
-
-	public Long getId() {
-		return id;
 	}
 
 	public LocalDateTime getCreated() {
