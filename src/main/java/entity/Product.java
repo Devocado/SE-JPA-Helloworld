@@ -72,8 +72,8 @@ public class Product {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 73 * hash + Objects.hashCode(this.partNo);
+        int hash = 5;
+        hash = 89 * hash + Objects.hashCode(this.partNo);
         return hash;
     }
 
@@ -94,6 +94,4 @@ public class Product {
         }
         return true;
     }
-        
-        
 }
